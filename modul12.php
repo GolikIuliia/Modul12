@@ -144,7 +144,7 @@
 
             $gender2 = getGenderFromName($people['fullname']);
     
-            while (($gender1 == $gender2) or ($gender2 != 0)) { //-- если гендер1 равен гендер2 или гендер1 неопр или гендер2 неопр, то ищем новый гендер
+            while (($gender1 == $gender2) or ($gender2 == 0)) { 
                 $people_key = array_rand($example_persons_array);
                 $people = $example_persons_array[$people_key]; 
 
@@ -177,8 +177,8 @@
             $name = $array7['name'];
             $patronymic = $array7['patronymic'];
             
-            if (getGenderFromName($person['fullname']) == 0) { //-- исключаем факт того, что пол у первого человека будет неопределён
-                continue;   
+            if (getGenderFromName($person['fullname']) == 0) { 
+                continue;  
             } 
             getPerfectPartner($surname, $name, $patronymic, $example_persons_array);  
         
@@ -186,3 +186,4 @@
     ?>  
     </body>
 </html>
+
